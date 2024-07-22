@@ -1,0 +1,64 @@
+{
+    "courses": [
+        {
+            "title": "Vocal Training",
+            "instructor": "Sarah Adams",
+            "duration": "4 weeks",
+            "level": "Beginner"
+        },
+        {
+            "title": "Bass Guitar Fundamentals",
+            "instructor": "David Wilson",
+            "duration": "6 weeks",
+            "level": "Intermediate"
+        },
+        {
+            "title": "Songwriting Workshop",
+            "instructor": "Jessica Lee",
+            "duration": "8 weeks",
+            "level": "Advanced"
+        },
+        {
+            "title": "Music Production Essentials",
+            "instructor": "Alex Thompson",
+            "duration": "6 weeks",
+            "level": "Intermediate"
+        },
+        {
+            "title": "Violin Techniques",
+            "instructor": "Olivia Brown",
+            "duration": "8 weeks",
+            "level": "Advanced"
+        },
+        {
+            "title": "Music Theory 101",
+            "instructor": "Daniel Johnson",
+            "duration": "4 weeks",
+            "level": "Beginner"
+        },
+        {
+            "title": "Saxophone Basics",
+            "instructor": "Sophia Davis",
+            "duration": "6 weeks",
+            "level": "Intermediate"
+        },
+        {
+            "title": "Electronic Music Production",
+            "instructor": "Max Wilson",
+            "duration": "8 weeks",
+            "level": "Advanced"
+        },
+        {
+            "title": "Ukulele for Beginners",
+            "instructor": "Liam Adams",
+            "duration": "4 weeks",
+            "level": "Beginner"
+        },
+        {
+            "title": "Music Marketing Strategies",
+            "instructor": "Emma Thompson",
+            "duration": "6 weeks",
+            "level": "Intermediate"
+        }
+    ]
+}
