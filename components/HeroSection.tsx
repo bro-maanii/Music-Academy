@@ -4,22 +4,26 @@ import { Button } from "./ui/moving-border";
 
 function HeroSection() {
   return (
-    <div className="h-[40rem] flex flex-col justify-center text-center  items-center gap-3 ">
+    <div className="h-[36rem] relative overflow-hidden flex flex-col justify-center text-center  items-center gap-3 ">
         <Spotlight
-        className="-top-5 left-0 md:left-60 md:-top-20"
+        className="-top-5 sm:-top-50 left-0 md:left-60 md:-top-20"
         fill="black"  
       />
-      <h1 className="text-4xl font-extrabold text-center">Master The Art Of Music</h1>
-      <p className=" text-center py-5 opacity-80 ">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit
-        voluptate fugiat iure sequi temporibus cumque fugit ullam quam ipsa
-        dolore, ut necessitatibus ab facilis nostrum labore ducimus ipsam
-        mollitia veniam.
-      </p>
-      <Button
+      <div className="relative top-14">
+        <h1 className="text-5xl md:text-7xl font-extrabold text-center">Master The Art Of Music</h1>
+        <p className=" text-center py-5 opacity-80 max-w-lg mx-auto ">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit
+          voluptate fugiat iure sequi temporibus cumque fugit ullam quam ipsa
+          dolore, ut necessitatibus ab facilis nostrum labore ducimus ipsam
+          mollitia veniam.
+        </p>
+        <Button
         borderRadius="1.75rem"
         className="bg-slate-900text-white border-slate-800"
       >Get Started</Button>
+      </div>
+      
+      
     </div>
   );
 }

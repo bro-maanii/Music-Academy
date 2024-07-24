@@ -3,8 +3,7 @@ import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen antialiased px-2">
-      
+    <main className="min-h-screen antialiased ">
       <HeroSection />
     </main>
   );
