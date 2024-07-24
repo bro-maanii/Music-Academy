@@ -83,7 +83,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="backdrop-blur-lg text-neutral-700 dark:text-neutral-200 hover:text-red-500 hover:underline cursor-pointer "
+      className="text-neutral-700 dark:text-neutral-200 hover:text-red-500 hover:underline cursor-pointer "
     >
       {children}
     </Link>
