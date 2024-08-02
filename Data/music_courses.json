@@ -1,64 +1,104 @@
 {
     "courses": [
         {
+            "id": 1,
             "title": "Vocal Training",
             "instructor": "Sarah Adams",
             "duration": "4 weeks",
-            "level": "Beginner"
+            "level": "Beginner",
+            "description": "Learn the fundamentals of vocal techniques and improve your singing skills.",
+            "IsFeature": true,
+            "image": "/Image/VocalTraining.png"
         },
         {
+            "id": 2,
             "title": "Bass Guitar Fundamentals",
             "instructor": "David Wilson",
             "duration": "6 weeks",
-            "level": "Intermediate"
+            "level": "Intermediate",
+            "description": "Master the basics of playing bass guitar and develop your own unique style.",
+            "IsFeature": false,
+            "image": "/Image/BassGuitarFundamentals.webp"
         },
         {
+            "id": 3,
             "title": "Songwriting Workshop",
             "instructor": "Jessica Lee",
             "duration": "8 weeks",
-            "level": "Advanced"
+            "level": "Advanced",
+            "description": "Unlock your creativity and learn the art of writing compelling songs.",
+            "IsFeature": true,
+            "image": "/Image/SongwritingWorkshop.jfif"
         },
         {
+            "id": 4,
             "title": "Music Production Essentials",
             "instructor": "Alex Thompson",
             "duration": "6 weeks",
-            "level": "Intermediate"
+            "level": "Intermediate",
+            "description": "Discover the essential techniques and tools used in music production.",
+            "IsFeature": false,
+            "image": "/Image/MusicEssentials.jfif"
         },
         {
+            "id": 5,
             "title": "Violin Techniques",
             "instructor": "Olivia Brown",
             "duration": "8 weeks",
-            "level": "Advanced"
+            "level": "Advanced",
+            "description": "Master the techniques required to play the violin with precision and expression.",
+            "IsFeature": true,
+            "image": "/Image/ViolinTechniques.jfif"
         },
         {
+            "id": 6,
             "title": "Music Theory 101",
             "instructor": "Daniel Johnson",
             "duration": "4 weeks",
-            "level": "Beginner"
+            "level": "Beginner",
+            "description": "Learn the fundamental concepts and principles of music theory.",
+            "IsFeature": false,
+            "image": "/Image/MusicTheory101.jfif"
         },
         {
+            "id": 7,
             "title": "Saxophone Basics",
             "instructor": "Sophia Davis",
             "duration": "6 weeks",
-            "level": "Intermediate"
+            "level": "Intermediate",
+            "description": "Get started with playing the saxophone and learn the basics of tone and technique.",
+            "IsFeature": true,
+            "image": "/Image/SaxophoneBasics.jpg"
         },
         {
+            "id": 8,
             "title": "Electronic Music Production",
             "instructor": "Max Wilson",
             "duration": "8 weeks",
-            "level": "Advanced"
+            "level": "Advanced",
+            "description": "Explore the world of electronic music production and create your own tracks.",
+            "IsFeature": false,
+            "image": "/Image/ElectronicMusicProduction.jfif"
         },
         {
+            "id": 9,
             "title": "Ukulele for Beginners",
             "instructor": "Liam Adams",
             "duration": "4 weeks",
-            "level": "Beginner"
+            "level": "Beginner",
+            "description": "Learn to play the ukulele and strum along to your favorite songs.",
+            "IsFeature": true,
+            "image": "/Image/UkuleleBeginners.jfif"
         },
         {
+            "id": 10,
             "title": "Music Marketing Strategies",
             "instructor": "Emma Thompson",
             "duration": "6 weeks",
-            "level": "Intermediate"
+            "level": "Intermediate",
+            "description": "Discover effective marketing strategies to promote and sell your music.",
+            "IsFeature": false,
+            "image": "/Image/MusicMarketingStrategies.jfif"
         }
     ]
 }
