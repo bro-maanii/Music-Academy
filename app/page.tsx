@@ -1,5 +1,6 @@
 import FeatureCoures from "@/components/FeatureCoures";
 import HeroSection from "@/components/HeroSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <main className="min-h-screen antialiased ">
       <HeroSection />
       <FeatureCoures />
+      <WhyChooseUs />
     </main>
   );
 }
