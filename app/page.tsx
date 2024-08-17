@@ -1,5 +1,6 @@
 import FeatureCoures from "@/components/FeatureCoures";
 import HeroSection from "@/components/HeroSection";
+import VoicesOfSuccess from "@/components/VoicesOfSuccess";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
 
@@ -9,6 +10,7 @@ export default function Home() {
       <HeroSection />
       <FeatureCoures />
       <WhyChooseUs />
+      <VoicesOfSuccess />
     </main>
   );
 }

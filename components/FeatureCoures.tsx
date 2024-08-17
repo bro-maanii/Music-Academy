@@ -22,7 +22,7 @@ function FeatureCoures() {
     (course: ICourse) => course.IsFeature === true
   );
   return (
-    <div className="py-12 bg-black">
+    <div className="py-12  bg-black dark:bg-white  bg-grid-white/[0.2] dark:bg-grid-black/[0.2] relative">
       {/* text */}
       <div className="flex flex-col text-center gap-4 pb-4 text-white">
         <h2 className="text-2xl font-bold">Featured Courses</h2>
