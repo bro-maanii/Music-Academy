@@ -22,9 +22,10 @@ function FeatureCoures() {
     (course: ICourse) => course.IsFeature === true
   );
   return (
-    <div className="py-12  bg-black dark:bg-white  bg-grid-white/[0.2] dark:bg-grid-black/[0.2] relative">
-      {/* text */}
-      <div className="flex flex-col text-center gap-4 pb-4 text-white">
+    <div className="py-12 w-full bg-black dark:bg-white  bg-grid-white/[0.2] dark:bg-grid-black/[0.2] relative">
+      <div className="flex flex-col justify-center items-center">
+        {/* text */}
+      <div className="max-w-6xl flex flex-col text-center gap-4 pb-4 text-white">
         <h2 className="text-2xl font-bold">Featured Courses</h2>
         <p className="text-4xl font-medium">
           Explore our top courses and start learning today
@@ -32,7 +33,7 @@ function FeatureCoures() {
       </div>
       {/* Course Card */}
       
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-3">
+        <div className="max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-3">
           {courses.map((course: ICourse) => (
             <div key={course.id} className="flex justify-evenly align-middle">
             <BackgroundGradient className="flex flex-col h-full rounded-[22px] w-full p-5 md:p-7 lg:p-12 bg-white dark:bg-zinc-900 transition duration-300">
@@ -70,13 +71,15 @@ function FeatureCoures() {
         </div>
      
       {/* Button */}
-      <div className="flex justify-center items-center py-6">
+      <div className="max-w-6xl flex justify-center items-center py-6">
         <Link href={"/"}>
           <button className=" bg-gradient-to-br from-slate-800 to-cyan-950  text-white p-2 rounded-3xl ">
             View All Courses
           </button>
         </Link>
       </div>
+      </div>
+      
     </div>
   );
 }
