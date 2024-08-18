@@ -2,7 +2,6 @@
 import React from "react";
 import CourseData from "../Data/music_courses.json";
 import Image from "next/image";
-import p1 from "../public/Image/SaxophoneBasics.jpg";
 import Link from "next/link";
 import { BackgroundGradient } from "./ui/background-gradient";
 
@@ -38,8 +37,8 @@ function FeatureCoures() {
             <div key={course.id} className="flex justify-evenly align-middle">
             <BackgroundGradient className="flex flex-col h-full rounded-[22px] w-full p-5 md:p-7 lg:p-12 bg-white dark:bg-zinc-900 transition duration-300">
               <Image
-                src={p1}
-                alt="jordans"
+                src={course.image}
+                alt={course.title}
                 height="500"
                 width="700"
                 className="flex object-cover"
@@ -72,7 +71,7 @@ function FeatureCoures() {
      
       {/* Button */}
       <div className="max-w-6xl flex justify-center items-center py-6">
-        <Link href={"/"}>
+        <Link href={"/courses/AllCourses"}>
           <button className=" bg-gradient-to-br from-slate-800 to-cyan-950  text-white p-2 rounded-3xl ">
             View All Courses
           </button>

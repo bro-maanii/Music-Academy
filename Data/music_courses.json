@@ -8,7 +8,8 @@
             "level": "Beginner",
             "description": "Learn the fundamentals of vocal techniques and improve your singing skills.",
             "IsFeature": true,
-            "image": "/Image/VocalTraining.png"
+            "image": "/Image/Vocal-Training.jpg",
+            "price": 99.99
         },
         {
             "id": 2,
@@ -18,7 +19,8 @@
             "level": "Intermediate",
             "description": "Master the basics of playing bass guitar and develop your own unique style.",
             "IsFeature": false,
-            "image": "/Image/BassGuitarFundamentals.webp"
+            "image": "/Image/BassGuitarFundamentals.jpg",
+            "price": 149.99
         },
         {
             "id": 3,
@@ -28,7 +30,8 @@
             "level": "Advanced",
             "description": "Unlock your creativity and learn the art of writing compelling songs.",
             "IsFeature": true,
-            "image": "/Image/SongwritingWorkshop.jfif"
+            "image": "/Image/SongwritingWorkshop.jpg",
+            "price": 199.99
         },
         {
             "id": 4,
@@ -38,7 +41,8 @@
             "level": "Intermediate",
             "description": "Discover the essential techniques and tools used in music production.",
             "IsFeature": false,
-            "image": "/Image/MusicEssentials.jfif"
+            "image": "/Image/MusicProductionEssentials.jpg",
+            "price": 129.99
         },
         {
             "id": 5,
@@ -48,7 +52,8 @@
             "level": "Advanced",
             "description": "Master the techniques required to play the violin with precision and expression.",
             "IsFeature": true,
-            "image": "/Image/ViolinTechniques.jfif"
+            "image": "/Image/ViolinTechniques.jpg",
+            "price": 179.99
         },
         {
             "id": 6,
@@ -58,7 +63,8 @@
             "level": "Beginner",
             "description": "Learn the fundamental concepts and principles of music theory.",
             "IsFeature": false,
-            "image": "/Image/MusicTheory101.jfif"
+            "image": "/Image/MusicTheory101.jpg",
+            "price": 99.99
         },
         {
             "id": 7,
@@ -68,7 +74,8 @@
             "level": "Intermediate",
             "description": "Get started with playing the saxophone and learn the basics of tone and technique.",
             "IsFeature": true,
-            "image": "/Image/SaxophoneBasics.jpg"
+            "image": "/Image/Saxophone-Basics-i.jpg",
+            "price": 149.99
         },
         {
             "id": 8,
@@ -78,7 +85,8 @@
             "level": "Advanced",
             "description": "Explore the world of electronic music production and create your own tracks.",
             "IsFeature": false,
-            "image": "/Image/ElectronicMusicProduction.jfif"
+            "image": "/Image/ElectronicMusicProduction.jpg",
+            "price": 199.99
         },
         {
             "id": 9,
@@ -88,7 +96,8 @@
             "level": "Beginner",
             "description": "Learn to play the ukulele and strum along to your favorite songs.",
             "IsFeature": true,
-            "image": "/Image/UkuleleBeginners.jfif"
+            "image": "/Image/UkuleleforBeginners.jpg",
+            "price": 99.99
         },
         {
             "id": 10,
@@ -98,7 +107,8 @@
             "level": "Intermediate",
             "description": "Discover effective marketing strategies to promote and sell your music.",
             "IsFeature": false,
-            "image": "/Image/MusicMarketingStrategies.jfif"
+            "image": "/Image/MusicMarketingStrategies.jpg",
+            "price": 149.99
         }
     ]
 }
