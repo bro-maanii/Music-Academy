@@ -1,6 +1,7 @@
 import FeatureCoures from "@/components/FeatureCoures";
 import HeroSection from "@/components/HeroSection";
 import VoicesOfSuccess from "@/components/VoicesOfSuccess";
+import Webniar from "@/components/Webniar";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
 
@@ -11,6 +12,8 @@ export default function Home() {
       <FeatureCoures />
       <WhyChooseUs />
       <VoicesOfSuccess />
+      <Webniar />
+      
     </main>
   );
 }
