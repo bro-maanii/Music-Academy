@@ -38,7 +38,7 @@ const webinars = [
 
 function Webniar() {
   return (
-    <div className="max-w-6xl mx-auto text-center bg-white bg-opacity-25 ">
+    <div className="max-w-6xl mx-auto text-center  ">
       {/*main tilte*/}
       <div className="text-blue-900 font-extrabold italic text-lg py-4">
         Feature Webniars

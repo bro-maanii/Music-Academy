@@ -26,42 +26,44 @@ export const HoverEffect = ({
         className
       )}
     >
-      {items.map((item, idx) => (
-        <>
-        {item.isFeatured ? (<Link
-          href={item?.link}
-          key={item?.title}
-          className="relative group  block p-2 h-full w-full"
-          onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}
-          target="_blank"
-        >
-          <AnimatePresence>
-            {hoveredIndex === idx && (
-              <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-400 bg-opacity-35 dark:bg-slate-800/[0.8] block  rounded-3xl"
-                layoutId="hoverBackground"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: { duration: 0.15 },
-                }}
-                exit={{
-                  opacity: 0,
-                  transition: { duration: 0.15, delay: 0.2 },
-                }}
-              />
-            )}
-          </AnimatePresence>
-          <Card>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
-          </Card>
-        </Link>) : undefined}
-        
-        </>
-        
-      ))}
+      {items.map((item, idx) =>{
+        if (item.isFeatured) {
+          return (
+            <Link
+              href={item.link}
+              key={item.title}
+              className="relative group block p-2 h-full w-full"
+              onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              target="_blank"
+            >
+              <AnimatePresence>
+                {hoveredIndex === idx && (
+                  <motion.span
+                    className="absolute inset-0 h-full w-full bg-neutral-400 bg-opacity-35 dark:bg-slate-800/[0.8] block rounded-3xl"
+                    layoutId="hoverBackground"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: { duration: 0.15 },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      transition: { duration: 0.15, delay: 0.2 },
+                    }}
+                  />
+                )}
+              </AnimatePresence>
+              <Card>
+                <CardTitle>{item.title}</CardTitle>
+                <CardDescription>{item.description}</CardDescription>
+              </Card>
+            </Link>
+          );
+        } else {
+          return null;
+        }
+      })}
     </div>
   );
 };
@@ -86,6 +88,8 @@ export const Card = ({
     </div>
   );
 };
+
+
 export const CardTitle = ({
   className,
   children,
