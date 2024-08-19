@@ -20,6 +20,7 @@ function page() {
               alt={course.title}
               width={300}
               height={300}
+              loading="lazy"
               className="flex mx-auto object-cover"
             />
 

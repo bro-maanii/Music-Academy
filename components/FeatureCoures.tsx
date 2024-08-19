@@ -41,6 +41,7 @@ function FeatureCoures() {
                 alt={course.title}
                 height="500"
                 width="700"
+                loading="lazy"
                 className="flex object-cover"
               />
 
