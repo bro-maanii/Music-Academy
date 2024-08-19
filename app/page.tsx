@@ -1,4 +1,5 @@
 import FeatureCoures from "@/components/FeatureCoures";
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Instructors from "@/components/Instructors";
 import VoicesOfSuccess from "@/components/VoicesOfSuccess";
@@ -15,6 +16,9 @@ export default function Home() {
       <VoicesOfSuccess />
       <Webniar />
       <Instructors />
+      <div className="flex w-full ">
+          <Footer />
+      </div>
     </main>
   );
 }
