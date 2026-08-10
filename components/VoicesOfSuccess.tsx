@@ -1,72 +1,84 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 import { ShootingStars } from "./ui/shooting-stars";
 import { StarsBackground } from "./ui/stars-background";
+
 const testimonials = [
   {
     quote:
-      "This platform transformed my guitar skills in just a few weeks! The lessons are easy to follow and fun.",
+      "Six weeks in and I could finally hear what my teacher meant about breath support. The feedback on my recordings was specific enough to actually act on.",
     name: "Alice Johnson",
-    title: "Aspiring Guitarist",
+    title: "Vocal Training",
   },
   {
     quote:
-      "I never thought I could learn piano online, but this site proved me wrong. The instructors are top-notch!",
+      "I had tried three different apps before this and none of them stuck. Having a real structure — and someone listening to what I submitted — made the difference.",
     name: "Michael Brown",
-    title: "Beginner Pianist",
+    title: "Music Theory 101",
   },
   {
     quote:
-      "Thanks to these courses, I can finally play my favorite songs on the violin. Highly recommended!",
+      "The violin course is demanding in the best way. My intonation notes came back marked bar by bar, which no online course had ever done for me.",
     name: "Sophie Williams",
-    title: "Violin Enthusiast",
+    title: "Violin Techniques",
   },
   {
     quote:
-      "The vocal training exercises have done wonders for my singing. I feel more confident in my voice than ever before.",
+      "I write songs for a living now. The songwriting workshop is where I stopped waiting for inspiration and started working to a process.",
     name: "Chris Taylor",
-    title: "Aspiring Singer",
+    title: "Songwriting Workshop",
   },
   {
     quote:
-      "I love how I can learn at my own pace. The tutorials are clear and the support from instructors is fantastic.",
+      "Being able to practise at 11pm after work, then get notes back the next morning, is the only reason I finished a course at all.",
     name: "Jessica Miller",
-    title: "Self-Taught Musician",
+    title: "Ukulele for Beginners",
   },
   {
     quote:
-      "I learned so much about music at the Music Learning Academy. It's an amazing place!",
+      "The production essentials course rebuilt how I approach a mix. I stopped guessing at EQ and started listening properly.",
     name: "Emily Davis",
-    title: "Student",
+    title: "Music Production Essentials",
   },
   {
     quote:
-      "The instructors at the Music Learning Academy are incredibly talented and passionate.",
+      "Genuinely skilled instructors who still play. That shows up in the small details they correct that a textbook would never mention.",
     name: "Michael Rodriguez",
-    title: "Musician",
+    title: "Saxophone Basics",
   },
 ];
 
 export default function VoicesOfSuccess() {
   return (
-    <div className="h-[32rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-      <div>
-        <h2 className="relative text-4xl font-bold text-center text-gray-900 dark:text-gray-100">
-          Voices of Success
-        </h2>
-        <p className="text-center text-gray-500 dark:text-gray-400 mt-4">
-          See what our students have to say about their experience with us.
-          </p>
-      </div>
-      <InfiniteMovingCards
-        items={testimonials}
-        direction="right"
-        speed="slow"
+    <section className="relative flex min-h-[36rem] w-full flex-col items-center justify-center overflow-hidden border-y border-white/8 bg-ink py-24">
+      <StarsBackground
+        starDensity={0.0004}
+        allStarsTwinkle={false}
+        twinkleProbability={0.4}
       />
-      <ShootingStars/>
-      <StarsBackground starDensity={0.002} allStarsTwinkle={false} twinkleProbability={0.2}  />
-    </div>
+      <ShootingStars />
+
+      <div className="relative z-10 flex w-full flex-col items-center">
+        <div className="flex flex-col items-center px-5 text-center">
+          <p className="eyebrow">Student stories</p>
+          <h2 className="mt-5 max-w-2xl font-display text-4xl leading-tight font-bold sm:text-5xl">
+            Voices of success
+          </h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-white/55">
+            What people say after finishing a course with us.
+          </p>
+        </div>
+
+        <div className="mt-14 w-full">
+          <InfiniteMovingCards
+            items={testimonials}
+            direction="right"
+            speed="slow"
+          />
+        </div>
+      </div>
+    </section>
   );
 }

@@ -1,60 +1,85 @@
 "use client";
 import React from "react";
 import { StickyScroll } from "./ui/sticky-scroll-reveal";
-import Image from "next/image";
-import p1 from '@/public/Image/VocalTraining.png'
-import p2 from '@/public/Image/SaxophoneBasics.jpg'
-import p3 from '@/public/Image/BassGuitar.webp'
-const aboutUs = [
-    {
-        title: "Expert Instructors",
-        description:
-        "Learn from industry professionals with years of experience in the music industry. Our instructors are not only skilled musicians but also passionate educators dedicated to helping you achieve your musical goals. They bring real-world experience and insights to the classroom, ensuring you get the most relevant and practical knowledge.",
-        content: (
-            <div className="h-full w-full  flex items-center justify-center text-white">
-              <Image src={p1} width={350} height={350} loading="lazy" alt="Expert Instructors" className="h-full w-full "/>
-            </div>
-        ),
-    },
-    {
-        title: "Comprehensive Curriculum",
-        description:
-        "Our courses cover a wide range of topics, from music theory to production techniques. Whether you're a beginner looking to understand the basics or an advanced student aiming to refine your skills, our curriculum is designed to cater to all levels. We provide in-depth lessons on various genres, instruments, and software, ensuring a well-rounded musical education.",
-        content: (
-            <div className="h-full w-full flex items-center justify-center text-white">
-              <Image src={p2} width={350} height={350} loading="lazy" alt="Comprehensive Curriculum" className="h-full w-full "/>
-            </div>
-        ),
-    },
-    {
-        title: "Flexible Learning",
-        description:
-        "Learn at your own pace with our flexible online courses, available 24/7. Our platform is designed to fit into your busy schedule, allowing you to access course materials and complete assignments whenever it’s convenient for you. Whether you prefer to study early in the morning or late at night, our courses are always accessible.",
-        content: (
-            <div className="h-full w-full  flex items-center justify-center text-white">
-              <Image  src={p3} width={350} height={350} loading="lazy" alt="Flexible Learning" className="h-full w-full "/>
-            </div>
-        ),
-    },
-    {
-        title: "Community Support",
-        description:
-        "Join a community of fellow learners and get support from our dedicated team. Our platform fosters a collaborative learning environment where you can share your progress, ask questions, and receive feedback from both peers and instructors. We believe that learning is a social experience, and our community is here to support you every step of the way.",
-        content: (
-            <div className="h-full w-full  flex items-center justify-center text-white">
-              <Image src={p1} width={350} height={350} loading="lazy" alt="Community Support" className="h-full w-full "/>
-            </div>
-        ),
-    },
-];
+import Image, { type StaticImageData } from "next/image";
+// Panels are all photographic on purpose: the flat illustrations
+// (SaxophoneBasics.jpg) and white product shots (BassGuitar.webp) in
+// public/Image look broken against the dark panel background.
+import p1 from "@/public/Image/ViolinTechniques.jpg";
+import p2 from "@/public/Image/BassGuitarFundamentals.jpg";
+import p3 from "@/public/Image/MusicMarketingStrategies.jpg";
+import p4 from "@/public/Image/ElectronicMusicProduction.jpg";
 
+const Panel = ({ src, alt }: { src: StaticImageData; alt: string }) => (
+  <div className="relative h-full w-full">
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      sizes="26rem"
+      className="object-cover"
+      placeholder="blur"
+    />
+    <div className="absolute inset-0 bg-linear-to-t from-ink/70 via-transparent to-transparent" />
+  </div>
+);
+
+const aboutUs = [
+  {
+    title: "Taught by working musicians",
+    description:
+      "Every instructor still performs, records or produces for a living. You learn the technique that holds up on a stage and in a session, not just the version that looks tidy on paper — and you get the context behind why it works.",
+    content: <Panel src={p1} alt="An instructor playing the violin" />,
+  },
+  {
+    title: "A curriculum that connects",
+    description:
+      "Theory, technique and production are taught as one subject rather than three unrelated ones. Each week builds on the last, so by the end of a course you can hear exactly why the early exercises mattered.",
+    content: (
+      <Panel src={p2} alt="Hands forming a chord on a guitar fretboard" />
+    ),
+  },
+  {
+    title: "Learn on your own schedule",
+    description:
+      "Courses run four to eight weeks and every lesson stays available afterwards. Practise at six in the morning or eleven at night — the material, exercises and feedback threads do not expire when the term does.",
+    content: (
+      <Panel src={p3} alt="A musician working on a laptop with headphones on" />
+    ),
+  },
+  {
+    title: "Feedback, not just video",
+    description:
+      "Submit a recording and get specific notes back — intonation, timing, mix balance. A community of other students works through the same material alongside you, so progress is something you can compare and discuss.",
+    content: (
+      <Panel
+        src={p4}
+        alt="Studio microphone in front of a mixing desk and audio meters"
+      />
+    ),
+  },
+];
 
 function WhyChooseUs() {
   return (
-    <div>
-        <StickyScroll content={aboutUs} />
-    </div>
-  )
+    <section className="relative px-5 py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col items-center text-center">
+          <p className="eyebrow">Why Harmonia</p>
+          <h2 className="mt-5 max-w-2xl font-display text-4xl leading-tight font-bold sm:text-5xl">
+            Built for people who actually want to play
+          </h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-white/55">
+            Four things we care about more than anything else on the syllabus.
+          </p>
+        </div>
+
+        <div className="mt-14">
+          <StickyScroll content={aboutUs} />
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default WhyChooseUs
+export default WhyChooseUs;

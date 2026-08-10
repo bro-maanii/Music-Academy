@@ -6,7 +6,7 @@ import {
   useMotionTemplate,
   useMotionValue,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -47,7 +47,7 @@ export function Button({
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
             className={cn(
-              "h-10 w-20 opacity-[0.8] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)]",
+              "h-16 w-24 opacity-90 bg-[radial-gradient(var(--color-brand-2)_35%,var(--color-brand-strong)_55%,transparent_70%)]",
               borderClassName
             )}
           />
@@ -56,7 +56,7 @@ export function Button({
 
       <div
         className={cn(
-          "relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-black font-bold flex items-center justify-center w-full h-full text-base antialiased",
+          "relative bg-surface-2/90 border border-white/10 backdrop-blur-xl text-white font-semibold flex items-center justify-center w-full h-full text-base antialiased transition-colors duration-200 hover:bg-surface-2",
           className
         )}
         style={{
@@ -82,7 +82,8 @@ export const MovingBorder = ({
   ry?: string;
   [key: string]: any;
 }) => {
-  const pathRef = useRef<any>();
+  // React 19's useRef requires an explicit initial argument.
+  const pathRef = useRef<SVGRectElement | null>(null);
   const progress = useMotionValue<number>(0);
 
   useAnimationFrame((time) => {

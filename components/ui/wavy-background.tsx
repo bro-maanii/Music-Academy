@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useSyncExternalStore } from "react";
 import { createNoise3D } from "simplex-noise";
 
 export const WavyBackground = ({
@@ -35,6 +35,7 @@ export const WavyBackground = ({
     ctx: any,
     canvas: any;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationIdRef = useRef<number | undefined>(undefined);
   const getSpeed = () => {
     switch (speed) {
       case "slow":
@@ -46,18 +47,21 @@ export const WavyBackground = ({
     }
   };
 
+  // Size the drawing buffer to the canvas's own box rather than the viewport,
+  // otherwise the waves are stretched whenever the container is not full-screen.
+  const resize = () => {
+    const rect = canvas.getBoundingClientRect();
+    w = ctx.canvas.width = Math.max(1, Math.floor(rect.width));
+    h = ctx.canvas.height = Math.max(1, Math.floor(rect.height));
+    ctx.filter = `blur(${blur}px)`;
+  };
+
   const init = () => {
     canvas = canvasRef.current;
     ctx = canvas.getContext("2d");
-    w = ctx.canvas.width = window.innerWidth;
-    h = ctx.canvas.height = window.innerHeight;
-    ctx.filter = `blur(${blur}px)`;
     nt = 0;
-    window.onresize = function () {
-      w = ctx.canvas.width = window.innerWidth;
-      h = ctx.canvas.height = window.innerHeight;
-      ctx.filter = `blur(${blur}px)`;
-    };
+    resize();
+    window.onresize = resize;
     render();
   };
 
@@ -83,31 +87,36 @@ export const WavyBackground = ({
     }
   };
 
-  let animationId: number;
   const render = () => {
     ctx.fillStyle = backgroundFill || "black";
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
     drawWave(5);
-    animationId = requestAnimationFrame(render);
+    // Held in a ref: the previous plain `let` was reassigned on every render,
+    // so cleanup always cancelled `undefined` and leaked the animation loop.
+    animationIdRef.current = requestAnimationFrame(render);
   };
 
   useEffect(() => {
     init();
     return () => {
-      cancelAnimationFrame(animationId);
+      if (animationIdRef.current !== undefined) {
+        cancelAnimationFrame(animationIdRef.current);
+      }
+      window.onresize = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [isSafari, setIsSafari] = useState(false);
-  useEffect(() => {
-    // I'm sorry but i have got to support it on safari.
-    setIsSafari(
-      typeof window !== "undefined" &&
-        navigator.userAgent.includes("Safari") &&
-        !navigator.userAgent.includes("Chrome")
-    );
-  }, []);
+  // Browser sniffing read through useSyncExternalStore so the server snapshot
+  // is `false` and hydration stays consistent — no setState-in-effect needed.
+  const isSafari = useSyncExternalStore(
+    () => () => {},
+    () =>
+      navigator.userAgent.includes("Safari") &&
+      !navigator.userAgent.includes("Chrome"),
+    () => false
+  );
 
   return (
     <div
@@ -117,7 +126,9 @@ export const WavyBackground = ({
       )}
     >
       <canvas
-        className="absolute inset-0 z-0"
+        // `inset-0` alone will not stretch a canvas: it is a replaced element,
+        // so width/height must be set explicitly for it to fill the container.
+        className="absolute inset-0 z-0 h-full w-full"
         ref={canvasRef}
         id="canvas"
         style={{

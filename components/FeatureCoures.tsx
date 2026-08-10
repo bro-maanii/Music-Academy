@@ -1,86 +1,50 @@
-"use client"
 import React from "react";
-import CourseData from "../Data/music_courses.json";
-import Image from "next/image";
 import Link from "next/link";
-import { BackgroundGradient } from "./ui/background-gradient";
-
-interface ICourse {
-  id: number;
-  title: string;
-  instructor: string;
-  duration: string;
-  level: string;
-  description: string;
-  IsFeature: boolean;
-  image: string;
-}
+import CourseCard from "./CourseCard";
+import { featuredCourses } from "@/lib/courses";
 
 function FeatureCoures() {
-  const courses = CourseData.courses.filter(
-    (course: ICourse) => course.IsFeature === true
-  );
   return (
-    <div className="py-12 w-full bg-black dark:bg-white  bg-grid-white/[0.2] dark:bg-grid-black/[0.2] relative">
-      <div className="flex flex-col justify-center items-center">
-        {/* text */}
-      <div className="max-w-6xl flex flex-col text-center gap-4 pb-4 text-white">
-        <h2 className="text-2xl font-bold">Featured Courses</h2>
-        <p className="text-4xl font-medium">
-          Explore our top courses and start learning today
-        </p>
-      </div>
-      {/* Course Card */}
-      
-        <div className="max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-3">
-          {courses.map((course: ICourse) => (
-            <div key={course.id} className="flex justify-evenly align-middle">
-            <BackgroundGradient className="flex flex-col h-full rounded-[22px] w-full p-5 md:p-7 lg:p-12 bg-white dark:bg-zinc-900 transition duration-300">
-              <Image
-                src={course.image}
-                alt={course.title}
-                height="500"
-                width="700"
-                loading="lazy"
-                className="flex object-cover"
-              />
+    <section className="relative w-full overflow-hidden border-y border-white/8 bg-surface py-24">
+      {/* Subtle grid backdrop */}
+      <div className="pointer-events-none absolute inset-0 bg-grid-white/[0.03]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,rgba(34,211,238,0.10),transparent_70%)]" />
 
-              
-              <div className="flex flex-col gap-2 mb-3 mt-auto">
-                <p className="text-center text-base sm:text-xl text-black  dark:text-neutral-200 mt-auto">
-                {course.title}
-                </p>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  Instructor: <span className="font-semibold italic">{course.instructor}</span> 
-                </p>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                Duration: <span className="font-semibold italic">{course.duration}</span>
-              </p>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                Description: <span className="font-semibold italic">{course.description}</span>
-              </p>
-              
-              </div>
-              
-              <button className="flex justify-center gap-1 hover:text-red-600  hover:gap-4  transition duration-500 rounded-full pl-4 pr-1 py-1  text-white space-x-1 bg-black mt-auto text-sm font-bold dark:bg-zinc-800">
-                see more <span className="ml-1 hover:ml-3">&rarr;</span>
-              </button>
-            </BackgroundGradient>
-          </div>
+      <div className="relative mx-auto max-w-7xl px-5">
+        {/* Section header */}
+        <div className="flex flex-col items-center text-center">
+          <p className="eyebrow">Featured</p>
+          <h2 className="mt-5 max-w-2xl font-display text-4xl leading-tight font-bold sm:text-5xl">
+            Start with our most popular courses
+          </h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-white/55">
+            Hand-picked programmes covering voice, strings, woodwind and
+            songwriting — each one built around weekly practice you can actually
+            keep up with.
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredCourses.map((course, i) => (
+            <CourseCard key={course.id} course={course} priority={i < 3} />
           ))}
         </div>
-     
-      {/* Button */}
-      <div className="max-w-6xl flex justify-center items-center py-6">
-        <Link href={"/courses/AllCourses"}>
-          <button className=" bg-gradient-to-br from-slate-800 to-cyan-950  text-white p-2 rounded-3xl ">
-            View All Courses
-          </button>
-        </Link>
+
+        {/* CTA */}
+        <div className="mt-14 flex justify-center">
+          <Link
+            href="/courses/AllCourses"
+            className="group flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-7 py-3.5 text-sm font-semibold text-white/85 transition-colors duration-200 hover:border-white/30 hover:bg-white/[0.08] hover:text-white"
+          >
+            View all courses
+            <span className="transition-transform duration-200 group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
+        </div>
       </div>
-      </div>
-      
-    </div>
+    </section>
   );
 }
 

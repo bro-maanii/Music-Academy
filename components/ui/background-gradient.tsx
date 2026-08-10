@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "motion/react";
 
 export const BackgroundGradient = ({
   children,
@@ -13,7 +13,7 @@ export const BackgroundGradient = ({
   containerClassName?: string;
   animate?: boolean;
 }) => {
-  const variants = {
+  const variants: Variants = {
     initial: {
       backgroundPosition: "0 50%",
     },
